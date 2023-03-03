@@ -1,0 +1,18 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="sinar.article">
+
+ <!-- -*- extra stuff goes here -*- -->
+
+  <browser:page
+    name="article-view"
+    for="*"
+    class=".article_view.ArticleView"
+    template="article_view.pt"
+    permission="zope2.View"
+    layer="sinar.article.interfaces.ISinarArticleLayer"
+    />
+
+</configure>

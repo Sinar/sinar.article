@@ -1,0 +1,6 @@
+[report]
+include =
+    src/sinar/*
+omit =
+    */test*
+    */upgrades/*
