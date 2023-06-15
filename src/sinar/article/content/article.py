@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from plone.app.textfield import RichText
 # from plone.autoform import directives
-from collective import dexteritytextindexer
+from plone.app.dexterity import textindexer
 from plone.dexterity.content import Container
 # from plone.namedfile import field as namedfile
 from plone.supermodel import model
@@ -21,7 +21,7 @@ class IArticle(model.Schema):
 
     # model.load('article.xml')
 
-    dexteritytextindexer.searchable('article_body')
+    textindexer.searchable('article_body')
     article_body = RichText(
         title=_(u'Article Body'),
         description=_(u'Main article body text'),

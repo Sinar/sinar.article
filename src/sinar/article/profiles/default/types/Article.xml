@@ -46,7 +46,7 @@
     <element value="plone.categorization"/>
     <element value="plone.locking" />
     <element value="plone.leadimage"/>
-    <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer" />
+    <element value="plone.textindexer" />
     <!--<element value="plone.relateditems"/>-->
     <!--<element value="plone.richtext"/>-->
     <!--<element value="plone.tableofcontents"/>-->
