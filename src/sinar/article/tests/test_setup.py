@@ -7,7 +7,6 @@ from sinar.article.testing import SINAR_ARTICLE_INTEGRATION_TESTING  # noqa: E50
 
 import unittest
 
-
 try:
     from Products.CMFPlone.utils import get_installer
 except ImportError:
