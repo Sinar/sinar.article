@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-from sinar.article.testing import SINAR_ARTICLE_FUNCTIONAL_TESTING
-from sinar.article.testing import SINAR_ARTICLE_INTEGRATION_TESTING
 from plone import api
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
+from sinar.article.testing import SINAR_ARTICLE_FUNCTIONAL_TESTING
+from sinar.article.testing import SINAR_ARTICLE_INTEGRATION_TESTING
 from zope.component import getMultiAdapter
 from zope.interface.interfaces import ComponentLookupError
 

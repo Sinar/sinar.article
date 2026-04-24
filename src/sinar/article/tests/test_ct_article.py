@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
-from sinar.article.content.article import IArticle  # NOQA E501
-from sinar.article.testing import SINAR_ARTICLE_INTEGRATION_TESTING  # noqa
 from plone import api
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.dexterity.interfaces import IDexterityFTI
+from sinar.article.content.article import IArticle  # NOQA E501
+from sinar.article.testing import SINAR_ARTICLE_INTEGRATION_TESTING  # noqa
 from zope.component import createObject
 from zope.component import queryUtility
 
 import unittest
-
-
 
 
 class ArticleIntegrationTest(unittest.TestCase):

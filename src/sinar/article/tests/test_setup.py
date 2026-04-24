@@ -34,9 +34,8 @@ class TestSetup(unittest.TestCase):
 
     def test_browserlayer(self):
         """Test that ISinarArticleLayer is registered."""
-        from sinar.article.interfaces import (
-            ISinarArticleLayer)
         from plone.browserlayer import utils
+        from sinar.article.interfaces import ISinarArticleLayer
         self.assertIn(
             ISinarArticleLayer,
             utils.registered_layers())
@@ -64,7 +63,6 @@ class TestUninstall(unittest.TestCase):
 
     def test_browserlayer_removed(self):
         """Test that ISinarArticleLayer is removed."""
-        from sinar.article.interfaces import \
-            ISinarArticleLayer
         from plone.browserlayer import utils
+        from sinar.article.interfaces import ISinarArticleLayer
         self.assertNotIn(ISinarArticleLayer, utils.registered_layers())
