@@ -5,7 +5,6 @@ from plone.app.testing import TEST_USER_ID
 from sinar.article.testing import SINAR_ARTICLE_FUNCTIONAL_TESTING
 from sinar.article.testing import SINAR_ARTICLE_INTEGRATION_TESTING
 from zope.component import getMultiAdapter
-from zope.interface.interfaces import ComponentLookupError
 
 import unittest
 
@@ -31,12 +30,14 @@ class ViewsIntegrationTest(unittest.TestCase):
         #     'Sample View is not found in article-view'
         # )
 
-    def test_article_view_not_matching_interface(self):
-        with self.assertRaises(ComponentLookupError):
-            getMultiAdapter(
-                (self.portal['front-page'], self.portal.REQUEST),
-                name='article-view'
-            )
+    def test_article_view_registered_for_all_content(self):
+        # The article-view is registered with for="*", so it is
+        # resolvable for any content type, including a plain document.
+        view = getMultiAdapter(
+            (self.portal['front-page'], self.portal.REQUEST),
+            name='article-view'
+        )
+        self.assertTrue(view.__name__ == 'article-view')
 
 
 class ViewsFunctionalTest(unittest.TestCase):

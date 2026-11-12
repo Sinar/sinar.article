@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from plone import api
+from plone.api.exc import InvalidParameterError
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.dexterity.interfaces import IDexterityFTI
@@ -72,7 +73,7 @@ class ArticleIntegrationTest(unittest.TestCase):
             u'{0} is not globally addable!'.format(fti.id)
         )
 
-    def test_ct_article_filter_content_type_false(self):
+    def test_ct_article_filter_content_type_true(self):
         setRoles(self.portal, TEST_USER_ID, ['Contributor'])
         fti = queryUtility(IDexterityFTI, name='Article')
         portal_types = self.portal.portal_types
@@ -83,12 +84,9 @@ class ArticleIntegrationTest(unittest.TestCase):
             title='Article container',
         )
         self.parent = self.portal[parent_id]
-        obj = api.content.create(
-            container=self.parent,
-            type='Document',
-            title='My Content',
-        )
-        self.assertTrue(
-            obj,
-            u'Cannot add {0} to {1} container!'.format(obj.id, fti.id)
-        )
+        with self.assertRaises(InvalidParameterError):
+            api.content.create(
+                container=self.parent,
+                type='Document',
+                title='My Content',
+            )
